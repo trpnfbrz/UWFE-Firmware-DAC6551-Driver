@@ -25,20 +25,20 @@ HAL_StatusTypeDef dac6551_write_code( dac6551_t * d, uint16_t D_in )
     // clamp to 12-bit
     D_in &= 0x0FFF;
 
-//    uint32_t control_bits = ( 0x0 << 16 );
-//    uint32_t input_value = control_bits | ( D_in & 0x0FFF );
+    uint32_t control_bits = ( 0x0 << 16 );
+    uint32_t input_value = control_bits | ( D_in & 0x0FFF );
 
     // Constructing a byte array to ensure correct endianness
 
-    uint8_t tx_data[3];
-
-    tx_data[0] = 0x00;
-    tx_data[1] = (D_in >> 4) & 0xFF;
-    tx_data[2] = (D_in << 4) & 0xF0;
+//    uint8_t tx_data[3];
+//
+//    tx_data[0] = 0x00;
+//    tx_data[1] = (D_in >> 4) & 0xFF;
+//    tx_data[2] = (D_in << 4) & 0xF0;
 
     cs_low(d); // bring cs low to start write sequence
-    // HAL_StatusTypeDef status = HAL_SPI_Transmit ( &hspi2, ( uint8_t * ) & input_value, 3, HAL_MAX_DELAY );
-    HAL_StatusTypeDef status = HAL_SPI_Transmit ( &hspi2, tx_data, 3, HAL_MAX_DELAY );
+    HAL_StatusTypeDef status = HAL_SPI_Transmit ( &hspi2, ( uint8_t * ) & input_value, 3, HAL_MAX_DELAY );
+//    HAL_StatusTypeDef status = HAL_SPI_Transmit ( &hspi2, tx_data, 3, HAL_MAX_DELAY );
     cs_high(d); // bring cs high after write sequence
 
     return status;
