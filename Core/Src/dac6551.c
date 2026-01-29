@@ -15,9 +15,9 @@ static inline void cs_high( dac6551_t * d )
 void dac6551_init( dac6551_t * d )
 {
 	// Init CS to high
-	cs_high ( d );
+	cs_high (d);
 	// First write: 0 V
-	d -> vref_mv = 0;
+	dac6551_write_code(d, 0);
 }
 
 HAL_StatusTypeDef dac6551_write_code( dac6551_t * d, uint16_t D_in )

@@ -8,6 +8,8 @@
 // dac_cli.c
 #include "FreeRTOS_CLI.h"
 #include "dac6551.h"
+#include "FreeRTOS.h"
+#include <string.h>
 #include <stdio.h>
 
 extern dac6551_t g_dac;
