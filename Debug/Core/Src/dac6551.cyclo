@@ -2,4 +2,4 @@
 ../Core/Src/dac6551.c:10:20:cs_high	1
 ../Core/Src/dac6551.c:15:6:dac6551_init	1
 ../Core/Src/dac6551.c:23:19:dac6551_write_code	1
-../Core/Src/dac6551.c:38:19:dac6551_set_mv	2
+../Core/Src/dac6551.c:47:19:dac6551_set_mv	2
